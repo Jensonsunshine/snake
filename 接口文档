@@ -6,7 +6,6 @@
 返回参数 code：状态码，msg：信息，data:数据{status:状态 1=成功 0 未成功 ，number：骰子旋转数字，after_move_number：旋转后移动至格数}
 返回示例：{"code":200,"data":{"status":0,"after_move_number":35,"number":1},"msg":"OK"}
 
-
 =================================
 
 回放接口
