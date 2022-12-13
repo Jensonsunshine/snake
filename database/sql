@@ -1,0 +1,66 @@
+
+#关卡
+CREATE TABLE `checkpoints` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(30) NOT NULL DEFAULT '',
+  `total` int NOT NULL DEFAULT '0' COMMENT '格数',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='关卡';
+
+INSERT INTO `snake`.`checkpoints` (`id`, `name`, `total`) VALUES (1, '第一关', 100);
+INSERT INTO `snake`.`checkpoints` (`id`, `name`, `total`) VALUES (2, '第二关', 101);
+
+# 游戏局
+CREATE TABLE `innings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL DEFAULT '0' COMMENT '用户id',
+  `checkpoint_id` int NOT NULL DEFAULT '0' COMMENT '关卡id',
+  `current_number` int NOT NULL DEFAULT '0' COMMENT '当前格数',
+  `status` tinyint NOT NULL DEFAULT '0' COMMENT '状态 1=成功  0=未成功',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='局';
+INSERT INTO `snake`.`innings` (`id`, `user_id`, `checkpoint_id`, `current_number`, `status`) VALUES (1, 1, 1, 35, 0);
+
+
+
+#局详情 - 旋转记录
+CREATE TABLE `inning_details` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `innings_id` int NOT NULL DEFAULT '0' COMMENT '局id',
+  `current_number` int NOT NULL DEFAULT '0' COMMENT '当前格数',
+  `number` int NOT NULL COMMENT '旋转出格数',
+  `after_move_number` int NOT NULL DEFAULT '0' COMMENT '移动后格数',
+  `user_id` int NOT NULL DEFAULT '0' COMMENT '用户id',
+  `update` int NOT NULL DEFAULT '0' COMMENT '时间戳 更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='局详情';
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (62, 1, 1, 2, 3, 1, 1670935450);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (63, 1, 3, 5, 8, 1, 1670935450);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (64, 1, 8, 1, 9, 1, 1670935450);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (65, 1, 9, 4, 13, 1, 1670935450);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (66, 1, 13, 2, 15, 1, 1670935451);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (67, 1, 15, 1, 16, 1, 1670935451);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (68, 1, 16, 6, 22, 1, 1670935451);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (69, 1, 22, 6, 28, 1, 1670935451);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (70, 1, 28, 4, 32, 1, 1670935451);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (71, 1, 32, 3, 35, 1, 1670935451);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (72, 1, 35, 4, 39, 1, 1670935452);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (73, 1, 39, 6, 45, 1, 1670935506);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (74, 1, 45, 4, 49, 1, 1670935517);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (75, 1, 49, 6, 55, 1, 1670935518);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (76, 1, 55, 6, 61, 1, 1670935518);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (77, 1, 61, 2, 63, 1, 1670935519);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (78, 1, 63, 1, 64, 1, 1670935519);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (79, 1, 64, 2, 66, 1, 1670935520);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (80, 1, 66, 3, 69, 1, 1670935520);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (81, 1, 69, 5, 74, 1, 1670935520);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (82, 1, 74, 1, 75, 1, 1670935521);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (83, 1, 75, 3, 78, 1, 1670935521);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (84, 1, 78, 2, 80, 1, 1670935541);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (85, 1, 80, 1, 81, 1, 1670935541);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (86, 1, 81, 6, 87, 1, 1670935542);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (87, 1, 87, 5, 92, 1, 1670935542);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (88, 1, 92, 3, 95, 1, 1670935543);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (89, 1, 95, 4, 99, 1, 1670935543);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (90, 1, 99, 6, 5, 1, 1670935544);
+INSERT INTO `snake`.`inning_details` (`id`, `innings_id`, `current_number`, `number`, `after_move_number`, `user_id`, `update`) VALUES (91, 1, 5, 6, 11, 1, 1670935545);

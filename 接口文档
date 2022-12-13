@@ -1,0 +1,51 @@
+游戏接口
+请求方式 GET
+请求路径 /inning/get_dice_num
+传递参数 innings_id：局id，user_id：用户id
+请求示例：http://localhost:8080/inning/get_dice_num?innings_id=1&user_id=1
+返回参数 code：状态码，msg：信息，data:数据{status:状态 1=成功 0 未成功 ，number：骰子旋转数字，after_move_number：旋转后移动至格数}
+返回示例：{"code":200,"data":{"status":0,"after_move_number":35,"number":1},"msg":"OK"}
+
+
+=================================
+
+回放接口
+请求方式 GET
+请求路径 /inning/get_inning_list
+传递参数 innings_id：局id，user_id：用户id
+请求示例：http://localhost:8080/inning/get_inning_list?innings_id=1&user_id=1
+返回参数 code：状态码，msg：信息，data:数据
+{
+    id：id
+    innings_id：游戏局id
+    user_id：用户id
+    current_number：当前格数
+    number：骰子旋转数字
+    after_move_number：旋转后移动至格数
+    update：更新时间
+}
+返回示例：{
+         "code":200,
+         "data":[
+             {
+                 "id":62,
+                 "innings_id":1,
+                 "user_id":1,
+                 "current_number":1,
+                 "number":2,
+                 "after_move_number":3,
+                 "update":1670935450
+             },
+             {
+                 "id":63,
+                 "innings_id":1,
+                 "user_id":1,
+                 "current_number":3,
+                 "number":5,
+                 "after_move_number":8,
+                 "update":1670935450
+             }
+         ],
+         "msg":"OK"
+     }
+
